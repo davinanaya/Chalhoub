@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.17",
+    "@fortawesome/free-brands-svg-icons": "^5.8.1",
+    "@fortawesome/free-solid-svg-icons": "^5.8.1",
+    "@fortawesome/react-fontawesome": "^0.1.4",
     "axios": "^0.18.0",
     "bootstrap": "^4.3.1",
     "eslint": "^5.15.3",
@@ -18,7 +22,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && sw-precache --config=sw-precache-config.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "eslint": "eslint src/*"
@@ -34,6 +38,7 @@
   ],
   "devDependencies": {
     "enzyme": "^3.9.0",
-    "enzyme-adapter-react-16": "^1.11.2"
+    "enzyme-adapter-react-16": "^1.11.2",
+    "sw-precache": "^5.2.1"
   }
 }

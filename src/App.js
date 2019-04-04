@@ -4,6 +4,7 @@ import TopHeadlines from './components/News/TopHeadlines';
 import NewsFiltered from './components/News/NewsFiltered';
 import { Navbar, Nav } from 'react-bootstrap/';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import './shared/fontAwesome';
 
 class App extends Component {
   render() {

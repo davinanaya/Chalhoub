@@ -12,7 +12,7 @@ class NewsFiltered extends Component{
 
     handleChange(event) {
         event.preventDefault(); // Let's stop this event.
-        const category = event.target.getAttribute("data-category");
+        const category = event.target.getAttribute('data-category');
         this.setState({
             category
         }, () => this.getNewsFiltered());
@@ -46,13 +46,13 @@ class NewsFiltered extends Component{
                     </Media.Body>
                 </Media>)
             })
-        ) : (<Spinner animation="border" variant="secondary" />);
+        ) : (<Spinner animation='border' variant='secondary' />);
 
         return (
-            <div className="news-filtered">
+            <div className='news-filtered'>
                 <Row>
                     <Col>
-                        <div className="categories"><Categories handleChange={this.handleChange.bind(this)}/></div>
+                        <div className='categories'><Categories handleChange={this.handleChange.bind(this)}/></div>
                     </Col>
                 </Row>
                 <Row>

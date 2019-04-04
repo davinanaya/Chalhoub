@@ -1,14 +1,9 @@
-// This optional code is used to register a service worker.
-// register() is not called by default.
 
 // This lets the app load faster on subsequent visits in production, and gives
 // it offline capabilities. However, it also means that developers (and users)
 // will only see deployed updates on subsequent visits to a page, after all the
 // existing tabs open on the page have been closed, since previously cached
 // resources are updated in the background.
-
-// To learn more about the benefits of this model and instructions on how to
-// opt-in, read https://bit.ly/CRA-PWA
 
 const isLocalhost = Boolean(
   window.location.hostname === 'localhost' ||
@@ -21,7 +16,7 @@ const isLocalhost = Boolean(
 );
 
 export function register(config) {
-  if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
+  if ('serviceWorker' in navigator) {
     // The URL constructor is available in all browsers that support SW.
     const publicUrl = new URL(process.env.PUBLIC_URL, window.location.href);
     if (publicUrl.origin !== window.location.origin) {
@@ -33,6 +28,7 @@ export function register(config) {
 
     window.addEventListener('load', () => {
       const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
+      // const swUrl = `${process.env.PUBLIC_URL}/service-worker-custom.js`;
 
       if (isLocalhost) {
         // This is running on localhost. Let's check if a service worker still exists or not.
@@ -41,10 +37,7 @@ export function register(config) {
         // Add some additional logging to localhost, pointing developers to the
         // service worker/PWA documentation.
         navigator.serviceWorker.ready.then(() => {
-          console.log(
-            'This web app is being served cache-first by a service ' +
-              'worker. To learn more, visit https://bit.ly/CRA-PWA'
-          );
+          console.log('This web app is being served cache-first by a service');
         });
       } else {
         // Is not localhost. Just register service worker
@@ -69,10 +62,7 @@ function registerValidSW(swUrl, config) {
               // At this point, the updated precached content has been fetched,
               // but the previous service worker will still serve the older
               // content until all client tabs are closed.
-              console.log(
-                'New content is available and will be used when all ' +
-                  'tabs for this page are closed. See https://bit.ly/CRA-PWA.'
-              );
+              console.log('New content is available and will be used when all ');
 
               // Execute callback
               if (config && config.onUpdate) {
