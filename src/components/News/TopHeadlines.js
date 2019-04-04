@@ -96,7 +96,7 @@ class TopHeadlines extends Component{
                     const trimTitle = post.title.substring(0, 43);
                     dataPost = <Col key={key}>
                         <Card  style={{ width: '18rem' }} ref={(ref) => this.handleElement(ref)}>
-                            <div className="wrap-img" onClick={() => this.detailPost(key)}><Card.Img variant="top" src="./blur.jpg" data-src={post.urlToImage}/></div>
+                            <div className="wrap-img" onClick={ () => this.detailPost(key)}><Card.Img variant="top" src="./blur.jpg" data-src={post.urlToImage}/></div>
                             <Card.Body>
                                 <Card.Title>{trimTitle}...</Card.Title>
                                 <Card.Text>{trimDescription}...</Card.Text>

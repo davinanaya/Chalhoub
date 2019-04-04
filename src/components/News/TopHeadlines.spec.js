@@ -1,10 +1,13 @@
+/* eslint-disable import/first */
 import React from 'react';
 import TopHeadlines from './TopHeadlines';
-import Enzyme, { shallow } from 'enzyme';
+import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 Enzyme.configure({ adapter: new Adapter() });
 
+jest.mock('react-dom');
+jest.mock('gsap/all');
 jest.mock('axios', () => {
     return {
         get: jest.fn(() => Promise.resolve({
@@ -16,8 +19,13 @@ jest.mock('axios', () => {
     }
 });
 
-// eslint-disable-next-line import/first
 import axios from 'axios';
+import ReactDOM from 'react-dom';
+
+// Object.defineProperty(document, 'querySelector', { value: '.content'});
+const div = global.document.createElement('div');
+div.setAttribute('class', 'container');
+global.document.body.appendChild(div);
 
 describe('Given a TopHeadlines', ()=> {
     describe('When axios its called', () => {
@@ -25,9 +33,10 @@ describe('Given a TopHeadlines', ()=> {
         beforeEach( async () => {
             // we look inside our HOC to get the component
             topHeadlines =  shallow(<TopHeadlines />).find('TopHeadlines').shallow();
+            await topHeadlines.setProps({ detailPost:  jest.fn()});
         });
 
-        it('It should get the data', ()=> {
+        it('It should get the data', () => {
             topHeadlines.instance().componentDidMount().then(() => {
                 expect(axios.get).toHaveBeenCalled();
                 expect(topHeadlines.state()).toHaveProperty('topHeadlines', [

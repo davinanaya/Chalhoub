@@ -23,7 +23,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build && sw-precache --config=sw-precache-config.js",
-    "test": "react-scripts test",
+    "test": "react-scripts test \"--transformIgnorePatterns\" \"node_modules/(?!(gsap)/)\"",
     "eject": "react-scripts eject",
     "eslint": "eslint src/*"
   },
